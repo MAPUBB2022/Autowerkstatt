@@ -1,6 +1,7 @@
 package repo;
 
 public class Car {
+    private int id;
     private String brand;
     private String model;
     private int manufactureYear;
@@ -10,12 +11,21 @@ public class Car {
     //private List<Mechanic> assigned;
 
 
-    public Car(String brand, String model, int manufactureYear, String chassisSeries, boolean repaired) {
+    public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.manufactureYear = manufactureYear;
         this.chassisSeries = chassisSeries;
         this.repaired = repaired;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBrand() {
