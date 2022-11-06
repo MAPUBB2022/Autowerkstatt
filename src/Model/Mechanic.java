@@ -17,6 +17,8 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
         this.carList = carList;
     }
 
+    public InMemoCars getRepo() { return repo; }
+
     public float getEarnings() {
         return earnings;
     }

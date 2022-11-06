@@ -23,10 +23,6 @@ public class Customer extends Person implements CustomerInterface<Car> {
         return ownedCars;
     }
 
-    public void setRepo(InMemoCars repo) {
-        this.repo = repo;
-    }
-
     public void addCar(Car c){
         repo.addCar(c);
     }
