@@ -23,11 +23,15 @@ public class Customer extends Person implements CustomerInterface<Car> {
         return ownedCars;
     }
 
-    public void addCar(Car c){
-        repo.addCar(c);
+    public void addCar(Car car){
+        repo.addCar(car);
     }
 
-    public void deleteCar(Car c){
-        repo.deleteCar(c);
+    public void deleteCar(Car car){
+        repo.deleteCar(car);
+    }
+
+    public void updateCar(Car car) {
+        repo.updateCar(car);
     }
 }

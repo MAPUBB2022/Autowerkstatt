@@ -1,5 +1,6 @@
 package Model;
 
+import Interfaces.ICrud;
 import Interfaces.MechanicInterface;
 import Model.Repository.InMemoCars;
 import java.util.List;
@@ -39,7 +40,15 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
         this.rating = rating;
     }
 
-    public void updateCar(Car c){
-        repo.updateCar(c);
+    public void addCar(Car car) {
+        repo.addCar(car);
+    }
+
+    public void deleteCar(Car car) {
+        repo.deleteCar(car);
+    }
+
+    public void updateCar(Car car){
+        repo.updateCar(car);
     }
 }
