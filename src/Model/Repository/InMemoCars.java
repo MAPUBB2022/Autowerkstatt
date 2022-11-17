@@ -1,13 +1,15 @@
 package Model.Repository;
 
 import Model.Car;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoCars{
     private List<Car> carList;
 
-    public InMemoCars(List<Car> carList) {
-        this.carList = carList;
+    public InMemoCars() {
+        this.carList = new ArrayList<>();
     }
 
     public List<Car> getCarList() {
