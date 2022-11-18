@@ -35,4 +35,6 @@ public class MechanicController {
     public void setRating(float rating) {
         model.setRating(rating);
     }
+
+    public void updateCar(Car car) {model.updateCar(car);}
 }
