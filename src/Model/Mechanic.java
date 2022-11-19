@@ -1,8 +1,9 @@
 package Model;
 
-import Interfaces.ICrud;
 import Interfaces.MechanicInterface;
 import Model.Repository.InMemoCars;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Mechanic extends Person implements MechanicInterface<Car> {
@@ -11,14 +12,20 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
     private List<Car> carList;
     private InMemoCars repo;
 
-    public Mechanic(String firstName, String lastName, float earnings, float rating, List<Car> carList) {
+    public Mechanic(String firstName, String lastName, float earnings, float rating) {
         super(firstName, lastName);
         this.earnings = earnings;
         this.rating = rating;
-        this.carList = carList;
+        this.carList = new ArrayList<>();
     }
 
-    public InMemoCars getRepo() { return repo; }
+    public List<Car> getRepo() {
+        List<Car> cars = new ArrayList<>();
+        for(Car c:this.repo.getCarList()) {
+            cars.add(c);
+        }
+        return cars;
+    }
 
     public float getEarnings() {
         return earnings;
@@ -41,14 +48,31 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
     }
 
     public void addCar(Car car) {
-        repo.addCar(car);
+        boolean found = false;
+        for (Car c:this.repo.getCarList()){
+            if(c.getId() == car.getId()) {  //doesn't get used here
+                found = true;
+                throw new IllegalArgumentException("Already exists");
+            }
+        }
+        if(!found){
+            this.repo.addCar(car);
+        }
     }
 
     public void deleteCar(Car car) {
-        repo.deleteCar(car);
+        boolean deleted = false;
+        for (Car c : this.repo.getCarList()) {
+            if (c.getId() == car.getId()){  //doesn't get used here
+                this.repo.deleteCar(car);
+                deleted = true;
+            }
+        }
+        if (!deleted)
+            throw new IllegalArgumentException("Not found");
     }
-
+    @Override
     public void updateCar(Car car){
-        repo.updateCar(car);
+        this.repo.updateCar(car);
     }
 }

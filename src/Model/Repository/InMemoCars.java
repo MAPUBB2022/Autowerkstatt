@@ -17,28 +17,11 @@ public class InMemoCars{
     }
 
     public void addCar(Car c){
-        boolean found = false;
-        for (Car car:this.carList){
-            if(car.getId() == c.getId()) {
-                found = true;
-                throw new RuntimeException();
-            }
-        }
-        if(!found){
-            this.carList.add(c);
-        }
+        this.carList.add(c);
     }
 
     public void deleteCar(Car c) {
-        boolean deleted = false;
-        for (Car car : this.carList) {
-            if (car.getId() == c.getId()){
-                this.carList.remove(c);
-                deleted = true;
-            }
-        }
-        if (!deleted)
-            throw new RuntimeException();
+        this.carList.remove(c);
     }
 
     public void updateCar(Car c){
@@ -50,6 +33,6 @@ public class InMemoCars{
             }
         }
         if(!updated)
-            throw new RuntimeException();
+            throw new IllegalArgumentException("Does not exist");
     }
 }

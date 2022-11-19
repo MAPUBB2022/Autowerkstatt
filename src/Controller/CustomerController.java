@@ -1,18 +1,20 @@
 package Controller;
-import Model.Car;
-import Model.Customer;
-import Model.Repository.InMemoCars;
+
+import Model.*;
+import View.CustomerView;
 
 import java.util.List;
 
-public class CustomerController {
+public class CustomerController{
     private  Customer model;
+    private CustomerView view;
 
-    public CustomerController(Customer model) {
+    public CustomerController(Customer model, CustomerView view) {
         this.model = model;
+        this.view=view;
     }
 
-    public InMemoCars getRepo(){
+    public List<Car> getCars(){
         return model.getRepo();
     }
 
@@ -26,5 +28,30 @@ public class CustomerController {
 
     public void deleteCar(Car c){
         model.deleteCar(c);
+    }
+
+    public Car findOldestCar(){
+        Car oldest=null;
+        int minYear= Integer.MAX_VALUE;
+
+        for(Car car: this.getCars()){
+            if(car.getManufactureYear()<minYear){
+                minYear=car.getManufactureYear();
+                oldest=car;
+            }
+        }
+        return oldest;
+    }
+
+    public void viewGetCars(){
+        this.view.printAllCars(this.getCars());
+    }
+
+    public void viewGetOwnedCars(){
+        this.view.printAllCars(this.getOwnedCars());
+    }
+
+    public void viewOldestCar(){
+        this.view.printOldestCar(this.findOldestCar());
     }
 }

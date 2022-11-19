@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Car {
@@ -13,7 +14,7 @@ public class Car {
     private List<Mechanic> assignedCar;
 
 
-    public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired, Customer owned, List<Mechanic> assignedCar) {
+    public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired, Customer owned) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -21,7 +22,7 @@ public class Car {
         this.chassisSeries = chassisSeries;
         this.repaired = repaired;
         this.owned = owned;
-        this.assignedCar = assignedCar;
+        this.assignedCar = new ArrayList<>();
     }
 
     public int getId() {
@@ -84,7 +85,11 @@ public class Car {
         this.owned = owned;
     }
 
-    public void setAssignedCar(List<Mechanic> assignedCar) {
-        this.assignedCar = assignedCar;
+    public String stringCar(){
+        return "(ID:"+this.getId()+", Brand:"+this.getBrand()+", Model:"+this.getModel()+", Manufacture Year:"+this.getManufactureYear()+", Chassis Series:"+this.getChassisSeries()+", Repaired:"+this.isRepaired()+", Owned by:"+this.getOwned()+", Assigned Mechanics:"+this.getAssignedCar()+")";
     }
+
+   /* public void setAssignedCar(List<Mechanic> assignedCar) {
+        this.assignedCar = assignedCar;
+    }*/
 }
