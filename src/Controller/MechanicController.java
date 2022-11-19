@@ -39,6 +39,8 @@ public class MechanicController {
         model.setRating(rating);
     }
 
+    public void setCarList(){model.setCarList();}
+
     public void updateCar(Car car) {model.updateCar(car);}
 
     public List<Car> filterByYear(int year){

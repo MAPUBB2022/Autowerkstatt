@@ -11,7 +11,7 @@ public class Car {
     private String chassisSeries;
     private boolean repaired;
     private Customer owned;
-    private List<Mechanic> assignedCar;
+    private List<Person> assigned;
 
 
     public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired, Customer owned) {
@@ -22,7 +22,7 @@ public class Car {
         this.chassisSeries = chassisSeries;
         this.repaired = repaired;
         this.owned = owned;
-        this.assignedCar = new ArrayList<>();
+        this.assigned = new ArrayList<>();
     }
 
     public int getId() {
@@ -53,8 +53,8 @@ public class Car {
         return owned;
     }
 
-    public List<Mechanic> getAssignedCar() {
-        return assignedCar;
+    public List<Person> getAssigned() {
+        return assigned;
     }
 
     public void setId(int id) {
@@ -86,10 +86,10 @@ public class Car {
     }
 
     public String stringCar(){
-        return "(ID:"+this.getId()+", Brand:"+this.getBrand()+", Model:"+this.getModel()+", Manufacture Year:"+this.getManufactureYear()+", Chassis Series:"+this.getChassisSeries()+", Repaired:"+this.isRepaired()+", Owned by:"+this.getOwned()+", Assigned Mechanics:"+this.getAssignedCar()+")";
+        return "(ID:"+this.getId()+", Brand:"+this.getBrand()+", Model:"+this.getModel()+", Manufacture Year:"+this.getManufactureYear()+", Chassis Series:"+this.getChassisSeries()+", Repaired:"+this.isRepaired()+", Owned by:"+this.getOwned()+", Assigned Mechanics:"+this.getAssigned()+")";
     }
 
-   /* public void setAssignedCar(List<Mechanic> assignedCar) {
-        this.assignedCar = assignedCar;
-    }*/
+    public void addMechanic(Person p) {  //in meniu va trebui sa fie un while (ca sa poti adauga mai multi) + un test daca Persoana este Mechanic (cu instanceof Mechanic)
+        this.assigned.add(p);
+    }
 }

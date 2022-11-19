@@ -5,6 +5,7 @@ import Model.Repository.InMemoCars;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Mechanic extends Person implements MechanicInterface<Car> {
     private float earnings;
@@ -45,6 +46,16 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public void setCarList(){
+        for(Car c:this.repo.getCarList()){
+            for(Person p:c.getAssigned()){
+                if(Objects.equals(this.getFirstName(), p.getFirstName()) && Objects.equals(this.getLastName(), p.getLastName())){
+                    this.carList.add(c);
+                }
+            }
+        }
     }
 
     public void addCar(Car car) {
