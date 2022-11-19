@@ -35,13 +35,9 @@ public class MechanicController {
         model.setEarnings(earnings);
     }
 
-    public void setRating(float rating) {
-        model.setRating(rating);
-    }
+    public void setRating(){model.setRating();}
 
     public void setCarList(){model.setCarList();}
-
-    public void updateCar(Car car) {model.updateCar(car);}
 
     public List<Car> filterByYear(int year){
         List<Car> cars= new ArrayList<>();

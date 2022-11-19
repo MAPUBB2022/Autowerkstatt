@@ -2,12 +2,14 @@ package Model;
 
 import Interfaces.CustomerInterface;
 import Model.Repository.InMemoCars;
+import Model.Repository.InMemoRatings;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Customer extends Person implements CustomerInterface<Car> {
     private InMemoCars repo;
+    private InMemoRatings ratings;
     private List<Car> ownedCars;
 
 
@@ -27,6 +29,10 @@ public class Customer extends Person implements CustomerInterface<Car> {
 
     public List<Car> getOwnedCars() {
         return ownedCars;
+    }
+
+    public void giveRating(Rating r){
+        this.ratings.addRating(r);
     }
 
     @Override

@@ -13,14 +13,14 @@ public class InMemoUsers {
     }
 
     public List<Person> getUsers() {
-        return users;
+        return this.users;
     }
 
     public void addUser(Person p){
         this.users.add(p);
     }
 
-    public void removeUser(Person p){
+    public void deleteUser(Person p){
         this.users.remove(p);
     }
 

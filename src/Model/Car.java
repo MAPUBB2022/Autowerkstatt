@@ -84,12 +84,11 @@ public class Car {
     public void setOwned(Customer owned) {
         this.owned = owned;
     }
+    public void setAssigned(Person p) {
+        this.assigned.add(p);
+    }  //in meniu va trebui sa fie un while (ca sa poti adauga mai multi) + un test daca Persoana este Mechanic (cu instanceof Mechanic)
 
     public String stringCar(){
         return "(ID:"+this.getId()+", Brand:"+this.getBrand()+", Model:"+this.getModel()+", Manufacture Year:"+this.getManufactureYear()+", Chassis Series:"+this.getChassisSeries()+", Repaired:"+this.isRepaired()+", Owned by:"+this.getOwned()+", Assigned Mechanics:"+this.getAssigned()+")";
-    }
-
-    public void addMechanic(Person p) {  //in meniu va trebui sa fie un while (ca sa poti adauga mai multi) + un test daca Persoana este Mechanic (cu instanceof Mechanic)
-        this.assigned.add(p);
     }
 }

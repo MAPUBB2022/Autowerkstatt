@@ -2,6 +2,7 @@ package Model;
 
 import Interfaces.MechanicInterface;
 import Model.Repository.InMemoCars;
+import Model.Repository.InMemoRatings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +13,12 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
     private float rating;
     private List<Car> carList;
     private InMemoCars repo;
+    private InMemoRatings ratings;
 
-    public Mechanic(String firstName, String lastName, float earnings, float rating) {
+    public Mechanic(String firstName, String lastName, float earnings) {
         super(firstName, lastName);
         this.earnings = earnings;
-        this.rating = rating;
+        this.rating = 0;
         this.carList = new ArrayList<>();
     }
 
@@ -44,9 +46,17 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
         this.earnings = earnings;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
+    public void setRating() {
+        float sum=0;
+        int ct=0;
+        for(Rating r: this.ratings.getRatings()){
+            if(Objects.equals(r.getMech().getFirstName(), this.getFirstName()) && Objects.equals(r.getMech().getLastName(), this.getLastName())){
+                sum=sum+r.getValue();
+                ct+=1;
+            }
+        }
+        this.rating=sum/ct;
+    } //trebuie apelata de fiecare data cand un customer da un rating
 
     public void setCarList(){
         for(Car c:this.repo.getCarList()){
