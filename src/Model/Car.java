@@ -14,7 +14,7 @@ public class Car {
     private List<Person> assigned;
 
 
-    public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired, Customer owned) {
+    public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired,Customer owned) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -49,7 +49,7 @@ public class Car {
         return repaired;
     }
 
-    public Customer getOwned() {
+    public Person getOwned() {
         return owned;
     }
 

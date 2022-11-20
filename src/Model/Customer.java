@@ -13,10 +13,10 @@ public class Customer extends Person implements CustomerInterface<Car> {
     private List<Car> ownedCars;
 
 
-    public Customer(String firstName, String lastName, InMemoCars repo, List<Car> ownedCars) {
+    public Customer(String firstName, String lastName, InMemoCars repo) {
         super(firstName,lastName);
         this.repo = repo;
-        this.ownedCars = ownedCars;
+        this.ownedCars = new ArrayList<>();
     }
 
     public List<Car> getRepo() {

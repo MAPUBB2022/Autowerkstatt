@@ -6,7 +6,7 @@ import View.CustomerView;
 import java.util.List;
 
 public class CustomerController{
-    private  Customer model;
+    private Customer model;
     private CustomerView view;
 
     public CustomerController(Customer model, CustomerView view) {
