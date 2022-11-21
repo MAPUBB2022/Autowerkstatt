@@ -3,7 +3,6 @@ import Model.Customer;
 import Model.Repository.InMemoCars;
 import Model.Repository.InMemoUsers;
 import Model.*;
-
 import java.util.*;
 
 import Controller.*;
@@ -29,7 +28,7 @@ public class Menu {
         System.out.println("Enter key 1 for customer or enter key 2 for mechanic");
         int choose = scanner.nextInt();
 
-        switch(choose) {
+        switch (choose) {
             case 1:
                 for (Person p : this.users.getUsers()) {
                     if (p instanceof Customer) {
@@ -58,18 +57,19 @@ public class Menu {
                         System.out.println(p.getLastName());
                     }
                 }
-                    Scanner scanner2 = new Scanner(System.in);
-                    System.out.println("What is your first name?");
-                    String firstname2 = scanner2.nextLine();
-                    System.out.println("What is your last name?");
-                    String lastname2 = scanner2.nextLine();
+                Scanner scanner2 = new Scanner(System.in);
+                System.out.println("What is your first name?");
+                String firstname2 = scanner2.nextLine();
+                System.out.println("What is your last name?");
+                String lastname2 = scanner2.nextLine();
 
-                for(Person p: this.users.getUsers()) {
+                for (Person p : this.users.getUsers()) {
                     if (p instanceof Mechanic && Objects.equals(p.getFirstName(), firstname2) && Objects.equals(p.getLastName(), lastname2)) {
                         newmechanic = (Mechanic) p;
                     }
                 }
-                this.controller2 = new MechanicController(this.newmechanic , view2);
+                this.controller2 = new MechanicController(this.newmechanic, view2);
+                menumechanic();
         }
 
     }
@@ -82,8 +82,8 @@ public class Menu {
         users.addUser(customer2);
         users.addUser(customer3);
 
-        Mechanic mechanic1 = new Mechanic("Matei" , "Andreescu" , 1900);
-        Mechanic mechanic2 = new Mechanic("Andrei" , "Cernea" , 2700);
+        Mechanic mechanic1 = new Mechanic("Matei", "Andreescu", 1900);
+        Mechanic mechanic2 = new Mechanic("Andrei", "Cernea", 2700);
         users.addUser(mechanic1);
         users.addUser(mechanic2);
     }
@@ -110,12 +110,14 @@ public class Menu {
             case 1:
                 System.out.println("What Id has the car you want to add?");
                 int id = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("What brand is the car you want to add?");
                 String brand = scanner.nextLine();
                 System.out.println("What model is the car you want to add?");
                 String model = scanner.nextLine();
                 System.out.println("What manufacture year is the car you want to add?");
                 int manufactureYear = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("What chassis series has the car you want to add?");
                 String chassisSeries = scanner.nextLine();
                 Car car1 = new Car(id, brand, model, manufactureYear, chassisSeries, false, newcustomer);
@@ -124,12 +126,14 @@ public class Menu {
             case 2:
                 System.out.println("What Id has the car you want to remove?");
                 int id2 = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("What brand is the car you want to remove?");
                 String brand2 = scanner.nextLine();
                 System.out.println("What model is the car you want to remove?");
                 String model2 = scanner.nextLine();
                 System.out.println("What manufacture year is the car you want to remove?");
                 int manufactureYear2 = scanner.nextInt();
+                scanner.nextLine();
                 System.out.println("What chassis series has the car you want to remove?");
                 String chassisSeries2 = scanner.nextLine();
                 Car car2 = new Car(id2, brand2, model2, manufactureYear2, scanner.nextLine(), false, newcustomer);
@@ -144,9 +148,9 @@ public class Menu {
                 System.out.println("What is your last name?");
                 String lastname = scanner.nextLine();
                 Mechanic themechanic = null;
-                for(Person p : this.users.getUsers()) {
-                    if(p instanceof Mechanic && Objects.equals(p.getFirstName(), firstname) && Objects.equals(p.getLastName(), lastname)) {
-                        themechanic = (Mechanic) p ;
+                for (Person p : this.users.getUsers()) {
+                    if (p instanceof Mechanic && Objects.equals(p.getFirstName(), firstname) && Objects.equals(p.getLastName(), lastname)) {
+                        themechanic = (Mechanic) p;
                     }
                 }
                 Rating rating = new Rating(newcustomer, themechanic, 89);
@@ -163,46 +167,67 @@ public class Menu {
         }
     }
 
-        public void menumechanic() {
-            //menu for Mechanic
-            System.out.println("\n");
-            System.out.println("Options: ");
-            System.out.println("Press key 1 to get the earnings ");
-            System.out.println("Press key 2 to get the rating ");
-            System.out.println("Press key 3 to get the carlist assigned to the mechanic ");
-            System.out.println("Press key 4 to get the cars filtered by year ");
-            System.out.println("<<Press key 0 for log out>>");
-            System.out.println("\n");
+    public void menumechanic() {
+        //menu for Mechanic
+        System.out.println("\n");
+        System.out.println("Options: ");
+        System.out.println("Press key 1 to get the earnings ");
+        System.out.println("Press key 2 to get the rating ");
+        System.out.println("Press key 3 to get the carlist assigned to the mechanic ");
+        System.out.println("Press key 4 to get the cars filtered by year ");
+        System.out.println("Press key 5 to update a car");
+        System.out.println("<<Press key 0 for log out>>");
+        System.out.println("\n");
 
 
-            System.out.println("Choose an option");
-            Scanner myscanner = new Scanner(System.in);
-            int choose = myscanner.nextInt();
-            System.out.println("\n");
+        System.out.println("Choose an option");
+        Scanner myscanner = new Scanner(System.in);
+        int choose = myscanner.nextInt();
+        System.out.println("\n");
 
-            switch (choose) {
-                case 1:
-                    this.controller2.viewEarnings();
-                    menumechanic();
-                case 2:
-                    this.controller2.viewRating();
-                    menumechanic();
-                case 3:
-                    this.controller2.viewCarList();
-                    menumechanic();
-                case 4:
-                    Scanner scanner = new Scanner(System.in);
-                    System.out.println("Enter a year");
-                    int inputYear = scanner.nextInt();
-                    this.controller2.filterByYear(inputYear);
-                    menumechanic();
-                case 5:
-                    exit(0);
-                default:
-                    System.out.println("Incorrect input , try to press a key between 0 and 5");
-                    menucustomer();
-            }
+        switch (choose) {
+            case 1:
+                this.controller2.viewEarnings();
+                menumechanic();
+            case 2:
+                this.controller2.viewRating();
+                menumechanic();
+            case 3:
+                this.controller2.viewCarList();
+                menumechanic();
+            case 4:
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Enter a year");
+                int inputYear = scanner.nextInt();
+                this.controller2.filterByYear(inputYear);
+                menumechanic();
+            case 5:
+                System.out.println("What Id has the car you want to update?");
+                int id = myscanner.nextInt();
+                myscanner.nextLine();
+                System.out.println("What brand is the car you want to update?");
+                String brand = myscanner.nextLine();
+                System.out.println("What model is the car you want to update?");
+                String model = myscanner.nextLine();
+                System.out.println("What manufacture Year has the car you want to update");
+                int manufactureYear = myscanner.nextInt();
+                myscanner.nextLine();
+                System.out.println("What chassis Series has the car you want to update?");
+                String chassisSeries = myscanner.nextLine();
+                Car car = new Car(id, brand, model, manufactureYear, chassisSeries, false, newcustomer);
+                car.setId(id);
+                car.setBrand(brand);
+                car.setModel(model);
+                car.setManufactureYear(manufactureYear);
+                car.setChassisSeries(chassisSeries);
+                this.controller2.updateCar(car);
+                menumechanic();
+            case 0:
+                exit(0);
+            default:
+                System.out.println("Incorrect input , try to press a key between 0 and 5");
+                menumechanic();
         }
-
     }
 
+}

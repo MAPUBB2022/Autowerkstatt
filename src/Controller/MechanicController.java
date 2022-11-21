@@ -39,6 +39,10 @@ public class MechanicController {
 
     public void setCarList(){model.setCarList();}
 
+    public void updateCar(Car c){
+        model.updateCar(c);
+    }
+
     public List<Car> filterByYear(int year){
         List<Car> cars= new ArrayList<>();
         for(Car car:this.getCars()){
@@ -48,6 +52,7 @@ public class MechanicController {
         }
         return cars;
     }
+
 
     public void viewGetCars(){
         this.view.printAllCars(this.getCars());
