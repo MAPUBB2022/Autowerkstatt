@@ -38,10 +38,15 @@ public class Customer extends Person implements CustomerInterface<Car> {
     @Override
     public void addCar(Car car){
         boolean found = false;
-        for (Car c:this.repo.getCarList()){
-            if(c.getId() == car.getId()) {
-                found = true;
-                throw new IllegalArgumentException("Already exists");
+        if(this.repo.getCarList().isEmpty()){
+            found = false; //?necessary
+        }
+        else {
+            for (Car c : this.repo.getCarList()) {
+                if (c.getId() == car.getId()) {
+                    found = true;
+                    throw new IllegalArgumentException("Already exists");
+                }
             }
         }
         if(!found){
