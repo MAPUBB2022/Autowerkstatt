@@ -56,4 +56,6 @@ public class CustomerController{
     public void viewOldestCar(){
         this.view.printOldestCar(this.findOldestCar());
     }
+
+    public void viewPrintMechanics(List<Person> persons){this.view.printMechanics(persons);}  //aici mai trebuie posibil inca o functie
 }

@@ -124,6 +124,7 @@ public class Menu {
                 this.controller1.addCar(car1);
                 menucustomer();
             case 2:
+                controller1.viewGetOwnedCars();
                 System.out.println("What Id has the car you want to remove?");
                 int id2 = scanner.nextInt();
                 scanner.nextLine();
@@ -136,16 +137,17 @@ public class Menu {
                 scanner.nextLine();
                 System.out.println("What chassis series has the car you want to remove?");
                 String chassisSeries2 = scanner.nextLine();
-                Car car2 = new Car(id2, brand2, model2, manufactureYear2, scanner.nextLine(), false, newcustomer);
+                Car car2 = new Car(id2, brand2, model2, manufactureYear2, chassisSeries2, false, newcustomer);
                 this.controller1.deleteCar(car2);
                 menucustomer();
             case 3:
                 this.controller1.viewGetOwnedCars();
                 menucustomer();
             case 4:
+                this.controller1.viewPrintMechanics(this.users.getUsers());
                 System.out.println("What first name has the mechanic?");
                 String firstname = scanner.nextLine();
-                System.out.println("What is your last name?");
+                System.out.println("What last name has the mechanic?");
                 String lastname = scanner.nextLine();
                 Mechanic themechanic = null;
                 for (Person p : this.users.getUsers()) {
@@ -153,7 +155,9 @@ public class Menu {
                         themechanic = (Mechanic) p;
                     }
                 }
-                Rating rating = new Rating(newcustomer, themechanic, 89);
+                System.out.println("What value has the rating?");
+                int value = scanner.nextInt();
+                Rating rating = new Rating(newcustomer, themechanic, value);
                 this.controller1.giveRating(rating);
                 menucustomer();
             case 5:
@@ -202,6 +206,7 @@ public class Menu {
                 this.controller2.filterByYear(inputYear);
                 menumechanic();
             case 5:
+                controller2.viewGetCars();
                 System.out.println("What Id has the car you want to update?");
                 int id = myscanner.nextInt();
                 myscanner.nextLine();

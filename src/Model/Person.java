@@ -24,4 +24,8 @@ public abstract class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public String stringPerson(){
+        return "(Firstname:"+this.getFirstName()+", Lastname:"+this.getLastName()+")"+"\n";
+    }
 }
