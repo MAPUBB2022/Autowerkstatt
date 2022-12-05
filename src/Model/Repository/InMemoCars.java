@@ -1,6 +1,7 @@
 package Model.Repository;
 
 import Model.Car;
+import Exceptions.CustomIncorrectArgument;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class InMemoCars{
         this.carList.remove(c);
     }
 
-    public void updateCar(Car c){
+    public void updateCar(Car c) throws CustomIncorrectArgument{
         boolean updated = false;
         for(Car car:this.carList){
             if(car.getId() == c.getId()){
@@ -33,6 +34,6 @@ public class InMemoCars{
             }
         }
         if(!updated)
-            throw new IllegalArgumentException("Does not exist");
+            throw new CustomIncorrectArgument("Does not exist");
     }
 }

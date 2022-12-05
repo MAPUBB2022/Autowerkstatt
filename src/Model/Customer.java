@@ -3,6 +3,7 @@ package Model;
 import Interfaces.CustomerInterface;
 import Model.Repository.InMemoCars;
 import Model.Repository.InMemoRatings;
+import Exceptions.CustomIncorrectArgument;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,26 +37,22 @@ public class Customer extends Person implements CustomerInterface<Car> {
     }
 
     @Override
-    public void addCar(Car car){
+    public void addCar(Car car) throws CustomIncorrectArgument{
         boolean found = false;
-        if(this.repo.getCarList().isEmpty()){
-            found = false; //?necessary
-        }
-        else {
             for (Car c : this.repo.getCarList()) {
                 if (c.getId() == car.getId()) {
                     found = true;
-                    throw new IllegalArgumentException("Already exists");
+                    throw new CustomIncorrectArgument("Already exists");
                 }
             }
-        }
+
         if(!found){
             this.repo.addCar(car);
             this.ownedCars.add(car);
         }
     }
     @Override
-    public void deleteCar(Car car){
+    public void deleteCar (Car car) throws CustomIncorrectArgument{
         boolean deleted = false;
         for (Car c : this.repo.getCarList()) {
             if (c.getId() == car.getId()){
@@ -65,10 +62,14 @@ public class Customer extends Person implements CustomerInterface<Car> {
             }
         }
         if (!deleted)
-            throw new IllegalArgumentException("Not found");
+            throw new CustomIncorrectArgument("Not found");
     }
 
-    public void updateCar(Car car) {
-        this.repo.updateCar(car);  //doesn't get used here
+    public void updateCar(Car car){
+        try {
+            repo.updateCar(car);
+        }catch (Exception error) {   //doesn't get used here
+            System.out.println(error.getMessage());
+        }
     }
 }

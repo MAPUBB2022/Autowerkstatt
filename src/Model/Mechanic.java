@@ -3,6 +3,7 @@ package Model;
 import Interfaces.MechanicInterface;
 import Model.Repository.InMemoCars;
 import Model.Repository.InMemoRatings;
+import Exceptions.CustomIncorrectArgument;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
             }
         }
         this.rating=sum/ct;
-    } //trebuie apelata de fiecare data cand un customer da un rating
+    }
 
     public void setCarList(){
         for(Car c:this.repo.getCarList()){
@@ -68,12 +69,12 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
         }
     }
 
-    public void addCar(Car car) {
+    public void addCar(Car car) throws CustomIncorrectArgument{
         boolean found = false;
         for (Car c:this.repo.getCarList()){
             if(c.getId() == car.getId()) {  //doesn't get used here
                 found = true;
-                throw new IllegalArgumentException("Already exists");
+                throw new CustomIncorrectArgument("Already exists");
             }
         }
         if(!found){
@@ -81,7 +82,7 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
         }
     }
 
-    public void deleteCar(Car car) {
+    public void deleteCar(Car car) throws CustomIncorrectArgument{
         boolean deleted = false;
         for (Car c : this.repo.getCarList()) {
             if (c.getId() == car.getId()){  //doesn't get used here
@@ -90,10 +91,14 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
             }
         }
         if (!deleted)
-            throw new IllegalArgumentException("Not found");
+            throw new CustomIncorrectArgument("Not found");
     }
     @Override
     public void updateCar(Car car){
-        this.repo.updateCar(car);
+        try {
+            repo.updateCar(car);
+        }catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
     }
 }
