@@ -220,7 +220,7 @@ public class Menu {
                 myscanner.nextLine();
                 System.out.println("What chassis Series has the car you want to update?");
                 String chassisSeries = myscanner.nextLine();
-                Car car = new Car(id, brand, model, manufactureYear, chassisSeries, false, newcustomer);
+                Car car = new Car(id, brand, model, manufactureYear, chassisSeries, true, newcustomer);
                 car.setId(id);
                 car.setBrand(brand);
                 car.setModel(model);

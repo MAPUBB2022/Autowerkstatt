@@ -11,8 +11,6 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerControllerTest {
-
-
     InMemoRatings ratings = new InMemoRatings();
     Mechanic mechanic = new Mechanic("Ion" , "Radu" , 8790);
     InMemoCars repo = new InMemoCars();
@@ -72,6 +70,7 @@ class CustomerControllerTest {
     void addCar() {
         Car car1 = new Car(1 , "Audi" , "A3", 2000 , "VDYUA3", true , newcustomer);
         customerController.addCar(car1);
+
         assert (customerController.getCars().contains(car1));
     }
 
@@ -82,11 +81,18 @@ class CustomerControllerTest {
         customerController.addCar(car1);
         customerController.addCar(car2);
         customerController.deleteCar(car2);
+
         assert (customerController.getCars().contains(car1));
     }
 
     @Test
     void findOldestCar() {
+        Car car1 = new Car(1 , "Audi" , "A3", 2000 , "VDYUA3", true , newcustomer);
+        Car car2 = new Car(2 , "BMW" , "I8", 2020 , "JKDOAI4", true , newcustomer);
+        customerController.addCar(car1);
+        customerController.addCar(car2);
+
+        assert (customerController.findOldestCar().getManufactureYear() == car1.getManufactureYear());
 
     }
 }
