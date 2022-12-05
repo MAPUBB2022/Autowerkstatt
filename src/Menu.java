@@ -12,14 +12,14 @@ import View.MechanicView;
 import static java.lang.System.exit;
 
 public class Menu {
-    private InMemoCars cars;
+    private InMemoCars cars=new InMemoCars();
     private CustomerController controller1;
     private MechanicController controller2;
     private Customer newcustomer;
     private Mechanic newmechanic;
     private InMemoUsers users = new InMemoUsers();
-    private CustomerView view1;
-    private MechanicView view2;
+    private CustomerView view1=new CustomerView();
+    private MechanicView view2= new MechanicView();
 
     public void login() {
         populate();
@@ -159,9 +159,10 @@ public class Menu {
                 int value = scanner.nextInt();
                 Rating rating = new Rating(newcustomer, themechanic, value);
                 this.controller1.giveRating(rating);
+                this.controller2.setRating();
                 menucustomer();
             case 5:
-                this.controller1.findOldestCar();
+                this.controller1.viewOldestCar();
                 menucustomer();
             case 0:
                 exit(0);
@@ -203,7 +204,7 @@ public class Menu {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Enter a year");
                 int inputYear = scanner.nextInt();
-                this.controller2.filterByYear(inputYear);
+                this.controller2.viewFilterByYear(inputYear);
                 menumechanic();
             case 5:
                 controller2.viewGetCars();

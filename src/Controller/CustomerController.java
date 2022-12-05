@@ -25,11 +25,19 @@ public class CustomerController{
     public void giveRating(Rating r){model.giveRating(r);}
 
     public void addCar(Car c){
-        model.addCar(c);
+        try {
+            model.addCar(c);
+        }catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
     }
 
     public void deleteCar(Car c){
-        model.deleteCar(c);
+        try {
+            model.deleteCar(c);
+        }catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
     }
 
     public Car findOldestCar(){
