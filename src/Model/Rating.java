@@ -3,9 +3,9 @@ package Model;
 public class Rating {
     private Person cust;
     private Person mech;
-    private float value;
+    private double value;
 
-    public Rating(Person cust, Person mech, float value) {
+    public Rating(Person cust, Person mech, double value) {
         this.cust = cust;
         this.mech = mech;
         this.value = value;
@@ -27,11 +27,11 @@ public class Rating {
         this.mech = mech;
     }
 
-    public float getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(double value) {
         this.value = value;
     }
 }

@@ -20,11 +20,9 @@ public class CustomerView {
         System.out.println(car.stringCar()+"\n");
     }
 
-    public void printMechanics(List<Person> persons) {
-        for (Person p : persons) {
-            if (p instanceof Mechanic)
-                System.out.println(p.stringPerson());
-
+    public void printMechanics(List<Mechanic> mechanics) {
+        for (Mechanic m : mechanics) {
+            System.out.println(m.stringPerson());
         }
     }
 

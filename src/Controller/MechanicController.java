@@ -23,7 +23,7 @@ public class MechanicController {
         return model.getEarnings();
     }
 
-    public float getRating() {
+    public double getRating() {
         return model.getRating();
     }
 

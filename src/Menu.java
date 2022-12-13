@@ -1,9 +1,9 @@
 import Model.Car;
 import Model.Customer;
-import Model.Repository.InMemoCars;
-import Model.Repository.InMemoUsers;
+import Model.Repository.*;
 import Model.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import Controller.*;
 import View.CustomerView;
@@ -17,9 +17,12 @@ public class Menu {
     private MechanicController controller2;
     private Customer newcustomer;
     private Mechanic newmechanic;
-    private InMemoUsers users = new InMemoUsers();
+    private InMemoCustomers customers = new InMemoCustomers();
+    private InMemoMechanics mechanics = new InMemoMechanics();
     private CustomerView view1=new CustomerView();
     private MechanicView view2= new MechanicView();
+
+    private InMemoRatings ratings = new InMemoRatings();
 
     public void login() {
         populate();
@@ -30,11 +33,9 @@ public class Menu {
 
         switch (choose) {
             case 1:
-                for (Person p : this.users.getUsers()) {
-                    if (p instanceof Customer) {
-                        System.out.println(p.getFirstName());
-                        System.out.println(p.getLastName());
-                    }
+                for (Customer c : this.customers.getCustomers()) {
+                        System.out.println(c.getFirstName());
+                        System.out.println(c.getLastName());
                 }
                 Scanner scanner1 = new Scanner(System.in);
                 System.out.println("What is your first name?");
@@ -42,20 +43,18 @@ public class Menu {
                 System.out.println("What is your last name?");
                 String lastname = scanner1.nextLine();
 
-                for (Person p : this.users.getUsers()) {
-                    if (p instanceof Customer && Objects.equals(p.getFirstName(), firstname) && Objects.equals(p.getLastName(), lastname)) {
-                        newcustomer = (Customer) p;
+                for (Customer c : this.customers.getCustomers()) {
+                    if (Objects.equals(c.getFirstName(), firstname) && Objects.equals(c.getLastName(), lastname)) {
+                        newcustomer = c;
                     }
                 }
                 this.controller1 = new CustomerController(this.newcustomer, view1);
                 menucustomer();
 
             case 2:
-                for (Person p : this.users.getUsers()) {
-                    if (p instanceof Mechanic) {
-                        System.out.println(p.getFirstName());
-                        System.out.println(p.getLastName());
-                    }
+                for (Mechanic m : this.mechanics.getMechanics()) {
+                        System.out.println(m.getFirstName());
+                        System.out.println(m.getLastName());
                 }
                 Scanner scanner2 = new Scanner(System.in);
                 System.out.println("What is your first name?");
@@ -63,9 +62,9 @@ public class Menu {
                 System.out.println("What is your last name?");
                 String lastname2 = scanner2.nextLine();
 
-                for (Person p : this.users.getUsers()) {
-                    if (p instanceof Mechanic && Objects.equals(p.getFirstName(), firstname2) && Objects.equals(p.getLastName(), lastname2)) {
-                        newmechanic = (Mechanic) p;
+                for (Mechanic m : this.mechanics.getMechanics()) {
+                    if (Objects.equals(m.getFirstName(), firstname2) && Objects.equals(m.getLastName(), lastname2)) {
+                        newmechanic = m;
                     }
                 }
                 this.controller2 = new MechanicController(this.newmechanic, view2);
@@ -78,14 +77,39 @@ public class Menu {
         Customer customer1 = new Customer("Emil", "Pop", cars);
         Customer customer2 = new Customer("Cristian", "Popescu", cars);
         Customer customer3 = new Customer("Andrei", "Serban", cars);
-        users.addUser(customer1);
-        users.addUser(customer2);
-        users.addUser(customer3);
+        customers.addCustomer(customer1);
+        customers.addCustomer(customer2);
+        customers.addCustomer(customer3);
+        Car car1=new Car(224,"Audi","A3",2017,"WAUZZZ4327",false,customer1);
+        Car car2=new Car(336,"Audi","Q3",2014,"WAUZZZ6903",false,customer2);
+        Car car3=new Car(193,"Volkswagen","Multivan",2020,"WAUZZZ1592",false,customer3);
+        Car car4=new Car(392,"BMW","M3",2021,"BWQ2X9921",false,customer1);
+        Car car5=new Car(705,"Porsche","911 Turbo S",2020,"WPD342A62",false,customer2);
+        Car car6=new Car(955,"BMW","I3",2016,"BWR9X3179",false,customer2);
+        cars.addCar(car1);
+        cars.addCar(car2);
+        cars.addCar(car3);
+        cars.addCar(car4);
+        cars.addCar(car5);
+        cars.addCar(car6);
 
         Mechanic mechanic1 = new Mechanic("Matei", "Andreescu", 1900);
         Mechanic mechanic2 = new Mechanic("Andrei", "Cernea", 2700);
-        users.addUser(mechanic1);
-        users.addUser(mechanic2);
+        mechanics.addMechanic(mechanic1);
+        mechanics.addMechanic(mechanic2);
+        Rating r1=new Rating(customer1,mechanic1,4);
+        Rating r2=new Rating(customer2,mechanic1,4.5);
+        Rating r3=new Rating(customer2,mechanic2,5);
+        Rating r4=new Rating(customer1,mechanic2,4.5);
+        this.controller1.giveRating(r1);
+        this.controller2.setRating();
+        this.controller1.giveRating(r2);
+        this.controller2.setRating();
+        this.controller1.giveRating(r3);
+        this.controller2.setRating();
+        this.controller1.giveRating(r4);
+        this.controller2.setRating();
+
     }
 
     public void menucustomer() {
@@ -144,19 +168,19 @@ public class Menu {
                 this.controller1.viewGetOwnedCars();
                 menucustomer();
             case 4:
-                this.controller1.viewPrintMechanics(this.users.getUsers());
+                this.controller1.viewPrintMechanics(this.mechanics.getMechanics());
                 System.out.println("What first name has the mechanic?");
                 String firstname = scanner.nextLine();
                 System.out.println("What last name has the mechanic?");
                 String lastname = scanner.nextLine();
                 Mechanic themechanic = null;
-                for (Person p : this.users.getUsers()) {
-                    if (p instanceof Mechanic && Objects.equals(p.getFirstName(), firstname) && Objects.equals(p.getLastName(), lastname)) {
-                        themechanic = (Mechanic) p;
+                for (Mechanic m : this.mechanics.getMechanics()) {
+                    if (Objects.equals(m.getFirstName(), firstname) && Objects.equals(m.getLastName(), lastname)) {
+                        themechanic = m;
                     }
                 }
                 System.out.println("What value has the rating?");
-                int value = scanner.nextInt();
+                double value = scanner.nextInt();
                 Rating rating = new Rating(newcustomer, themechanic, value);
                 this.controller1.giveRating(rating);
                 this.controller2.setRating();

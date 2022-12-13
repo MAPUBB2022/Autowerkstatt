@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class Mechanic extends Person implements MechanicInterface<Car> {
     private float earnings;
-    private float rating;
+    private double rating;
     private List<Car> carList;
     private InMemoCars repo;
     private InMemoRatings ratings;
@@ -35,7 +35,7 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
         return earnings;
     }
 
-    public float getRating() {
+    public double getRating() {
         return rating;
     }
 
@@ -48,7 +48,7 @@ public class Mechanic extends Person implements MechanicInterface<Car> {
     }
 
     public void setRating() {
-        float sum=0;
+        double sum=0;
         int ct=0;
         for(Rating r: this.ratings.getRatings()){
             if(Objects.equals(r.getMech().getFirstName(), this.getFirstName()) && Objects.equals(r.getMech().getLastName(), this.getLastName())){

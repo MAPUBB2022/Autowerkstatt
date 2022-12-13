@@ -20,7 +20,7 @@ public class MechanicView {
         System.out.println("Earnings:"+earnings+"\n");
     }
 
-    public void printRating(float rating){
+    public void printRating(double rating){
         System.out.println("Rating:"+rating+"\n");
     }
 }
