@@ -22,7 +22,8 @@ public class CustomerController{
         return model.getOwnedCars();
     }
 
-    public void giveRating(Rating r){model.giveRating(r);}
+    public void giveRating(Rating r)
+    {model.giveRating(r);}
 
     public void addCar(Car c){
         try {

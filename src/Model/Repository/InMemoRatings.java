@@ -13,7 +13,8 @@ public class InMemoRatings {
         this.ratings = new ArrayList<>();
     }
 
-    public List<Rating> getRatings(){return this.ratings;}
+    public List<Rating> getRatings()
+    {return this.ratings;}
 
     public void addRating(Rating r){
         this.ratings.add(r);

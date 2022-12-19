@@ -13,7 +13,6 @@ public class Customer extends Person implements CustomerInterface<Car> {
     private InMemoRatings ratings;
     private List<Car> ownedCars;
 
-
     public Customer(String firstName, String lastName, InMemoCars repo) {
         super(firstName,lastName);
         this.repo = repo;
