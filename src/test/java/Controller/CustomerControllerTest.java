@@ -12,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerControllerTest {
     InMemoRatings ratings = new InMemoRatings();
-    Mechanic mechanic = new Mechanic("Ion" , "Radu" , 8790);
     InMemoCars repo = new InMemoCars();
-    Customer customer = new Customer("David" , "Coldea" , repo);
+    Mechanic mechanic = new Mechanic("Ion" , "Radu" , 8790, repo, ratings);
+    Customer customer = new Customer("David" , "Coldea" , repo, ratings);
     CustomerView view;
     CustomerController customerController = new CustomerController(customer , view);
     Customer newcustomer;

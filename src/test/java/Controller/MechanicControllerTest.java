@@ -16,13 +16,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MechanicControllerTest {
-    InMemoRatings ratings;
+    InMemoRatings ratings= new InMemoRatings();
     Customer newcustomer;
     InMemoCars repo = new InMemoCars();
 
-    Customer customer = new Customer("David" , "Coldea" , repo);
+    Customer customer = new Customer("David" , "Coldea" , repo, ratings);
 
-    Mechanic mechanic = new Mechanic("Ion" , "Radu" , 5478);
+    Mechanic mechanic = new Mechanic("Ion" , "Radu" , 5478, repo, ratings);
 
     MechanicView mechanicView;
 
@@ -52,7 +52,7 @@ class MechanicControllerTest {
 
     @Test
     void getEarnings() {
-        Mechanic mechanic1 = new Mechanic("Radu" , "Teaci" , 6543);
+        Mechanic mechanic1 = new Mechanic("Radu" , "Teaci" , 6543, repo, ratings);
 
         assert (mechanicController.getEarnings() == 6543);
     }

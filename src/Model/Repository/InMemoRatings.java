@@ -25,15 +25,10 @@ public class InMemoRatings {
     }
 
     public void updateRating(Rating r){
-        boolean updated = false;
         for(Rating rt:this.ratings){
             if(rt.getCust()==r.getCust() && rt.getMech()==r.getMech()){
-                updated = true;
                 rt.setValue(r.getValue());
             }
         }
-        if(!updated)
-            throw new IllegalArgumentException("Does not exist");
-
     }
 }

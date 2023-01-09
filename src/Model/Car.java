@@ -11,7 +11,7 @@ public class Car {
     private String chassisSeries;
     private boolean repaired;
     private Customer owned;
-    private List<Person> assigned;
+    private List<Mechanic> assigned;
 
 
     public Car(int id, String brand, String model, int manufactureYear, String chassisSeries, boolean repaired,Customer owned) {
@@ -49,11 +49,11 @@ public class Car {
         return repaired;
     }
 
-    public Person getOwned() {
+    public Customer getOwned() {
         return owned;
     }
 
-    public List<Person> getAssigned() {
+    public List<Mechanic> getAssigned() {
         return assigned;
     }
 
@@ -84,11 +84,15 @@ public class Car {
     public void setOwned(Customer owned) {
         this.owned = owned;
     }
-    public void setAssigned(Person p) {
-        this.assigned.add(p);
-    }  //in meniu va trebui sa fie un while (ca sa poti adauga mai multi) + un test daca Persoana este Mechanic (cu instanceof Mechanic)
+    public void setAssigned(List<Mechanic> list) {
+        this.assigned=list;
+    }
 
+    /**
+     * used to display the attributes in View-Layer and others
+     * @return the attributes of the object
+     */
     public String stringCar(){
-        return "(ID:"+this.getId()+", Brand:"+this.getBrand()+", Model:"+this.getModel()+", Manufacture Year:"+this.getManufactureYear()+", Chassis Series:"+this.getChassisSeries()+", Repaired:"+this.isRepaired()+", Owned by:"+this.getOwned()+", Assigned Mechanics:"+this.getAssigned()+")"+"\n";
+        return "(ID:"+this.getId()+", Brand:"+this.getBrand()+", Model:"+this.getModel()+", Manufacture Year:"+this.getManufactureYear()+", Chassis Series:"+this.getChassisSeries()+", Repaired:"+this.isRepaired()+", Owned by:"+this.getOwned().stringPerson()+", Assigned Mechanics:"+this.getAssigned()+")"+"\n";
     }
 }

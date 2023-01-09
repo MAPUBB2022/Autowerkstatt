@@ -40,9 +40,17 @@ public class MechanicController {
     public void setCarList(){model.setCarList();}
 
     public void updateCar(Car c){
-        model.updateCar(c);
+        try {
+            model.updateCar(c);
+        }catch (Exception error) {
+            System.out.println(error.getMessage());
+        }
     }
 
+    /**
+     * @param year
+     * @return all cars with manufacture year smaller than the given parameter
+     */
     public List<Car> filterByYear(int year){
         List<Car> cars= new ArrayList<>();
         for(Car car:this.getCars()){
@@ -54,6 +62,9 @@ public class MechanicController {
     }
 
 
+    /**
+     * the following are functions using View-Structure to print given entities
+     */
     public void viewGetCars(){
         this.view.printAllCars(this.getCars());
     }
@@ -66,9 +77,7 @@ public class MechanicController {
         this.view.printRating(this.getRating());
     }
 
-    public void viewCarList(){
-        this.view.printAllCars(this.getCarList());
-    }
+    public void viewCarList(){this.view.printAllCars(this.getCarList());}
 
     public void viewFilterByYear(int year){
         this.view.printAllCars(this.filterByYear(year));

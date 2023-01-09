@@ -25,6 +25,10 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
+    /**
+     * used to display the attributes in View-Layer and others
+     * @return the attributes of the object
+     */
     public String stringPerson(){
         return "(Firstname:"+this.getFirstName()+", Lastname:"+this.getLastName()+")"+"\n";
     }

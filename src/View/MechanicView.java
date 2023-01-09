@@ -5,6 +5,10 @@ import Model.*;
 import java.util.List;
 
 public class MechanicView {
+    /**
+     * the following functions are used to display various objects
+     * @param cars parameters from each function are the entities to be displayed
+     */
     public void printAllCars(List<Car> cars){
         if(cars.isEmpty()){
             System.out.println("No cars available"+"\n");

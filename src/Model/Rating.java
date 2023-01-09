@@ -34,4 +34,12 @@ public class Rating {
     public void setValue(double value) {
         this.value = value;
     }
+
+    /**
+     * used to display the attributes in View-Layer and others
+     * @return the attributes of the object
+     */
+    public String stringRating(){
+        return "(Customer:"+this.getCust().getFirstName()+" "+this.getCust().getLastName()+", Mechanic:"+this.getMech().getFirstName()+" "+this.getMech().getLastName()+", Value:"+this.getValue()+")"+"\n";
+    }
 }

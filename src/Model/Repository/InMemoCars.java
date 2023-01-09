@@ -25,15 +25,12 @@ public class InMemoCars{
         this.carList.remove(c);
     }
 
-    public void updateCar(Car c) throws CustomIncorrectArgument{
-        boolean updated = false;
+    public void updateCar(Car c){
         for(Car car:this.carList){
             if(car.getId() == c.getId()){
-                updated = true;
                 car.setRepaired(c.isRepaired());
+                car.setAssigned(c.getAssigned());
             }
         }
-        if(!updated)
-            throw new CustomIncorrectArgument("Does not exist");
     }
 }

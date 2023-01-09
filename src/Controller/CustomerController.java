@@ -22,8 +22,31 @@ public class CustomerController{
         return model.getOwnedCars();
     }
 
+    public void setOwnedCars(){model.setOwned();}
+
     public void giveRating(Rating r)
-    {model.giveRating(r);}
+    {   try {
+          model.giveRating(r);
+        }catch (Exception error){
+          System.out.println(error.getMessage());
+        }
+    }
+
+    public void removeRating(Rating r){
+        try {
+            model.removeRating(r);
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
+    }
+
+    public void updateRating(Rating r){
+        try {
+            model.updateRating(r);
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
+    }
 
     public void addCar(Car c){
         try {
@@ -41,11 +64,22 @@ public class CustomerController{
         }
     }
 
+    public void updateCar(Car c){
+        try {
+            model.updateCar(c);
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
+    }
+
+    /**
+     * @return oldest car from owned cars
+     */
     public Car findOldestCar(){
         Car oldest=null;
         int minYear= Integer.MAX_VALUE;
 
-        for(Car car: this.getCars()){
+        for(Car car: this.getOwnedCars()){
             if(car.getManufactureYear()<minYear){
                 minYear=car.getManufactureYear();
                 oldest=car;
@@ -54,6 +88,9 @@ public class CustomerController{
         return oldest;
     }
 
+    /**
+     * the following are functions using View-Structure to print given entities
+     */
     public void viewGetCars(){
         this.view.printAllCars(this.getCars());
     }
@@ -66,5 +103,7 @@ public class CustomerController{
         this.view.printOldestCar(this.findOldestCar());
     }
 
-    public void viewPrintMechanics(List<Mechanic> mechanics){this.view.printMechanics(mechanics);}  //aici mai trebuie posibil inca o functie
+    public void viewPrintMechanics(List<Mechanic> mechanics){this.view.printMechanics(mechanics);}
+
+    public void viewRatings(List<Rating> ratings){this.view.printRatings(ratings);}
 }
