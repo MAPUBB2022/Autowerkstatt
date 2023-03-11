@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26915f3e-6d58-462e-bc56-dc07ca849a13" name="Changes" comment="fixed bugs+added documentation --&gt;final state" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2GtNFHBhJ2QoilEZi3h8xO2Xfw7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Vik/IdeaProjects/FPlabor1",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Autowerkstatt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26915f3e-6d58-462e-bc56-dc07ca849a13" name="Changes" comment="" />
+      <created>1667203814744</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667203814744</updated>
+    </task>
+    <task id="LOCAL-00001" summary="commitRepo">
+      <created>1667219564029</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667219564029</updated>
+    </task>
+    <task id="LOCAL-00002" summary="package Interfaces and Model including package Repository created and implemented by both authors of the project">
+      <created>1667757049366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667757049366</updated>
+    </task>
+    <task id="LOCAL-00003" summary="temporary Customer- and MechanicController">
+      <created>1667770983439</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667770983439</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added InMemoUsers + small changes">
+      <created>1668700784820</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668700784820</updated>
+    </task>
+    <task id="LOCAL-00005" summary="finished implementing Repositories + small changes">
+      <created>1668766578417</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668766578417</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implemented Customer and Mechanic View, extended features in Controller + necessary changes to classes from Model and Repository Package">
+      <created>1668874085925</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668874085925</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implemented missing feature-&gt; assign Mechanics to Cars">
+      <created>1668877299570</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668877299570</updated>
+    </task>
+    <task id="LOCAL-00008" summary="implemented missing feature-&gt; Ratings for Mechanics">
+      <created>1668883104735</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668883104735</updated>
+    </task>
+    <task id="LOCAL-00009" summary="custom Exception + minor changes to Menu and Interfaces">
+      <created>1670237149241</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670237149242</updated>
+    </task>
+    <task id="LOCAL-00010" summary="split InMemoUsers into InMemoCustomers and InMemoMechanics + minor changes">
+      <created>1670923220201</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670923220201</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed bugs+added documentation --&gt;final state">
+      <created>1673288955331</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673288955331</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commitRepo" />
+    <MESSAGE value="package Interfaces and Model including package Repository created and implemented by both authors of the project" />
+    <MESSAGE value="temporary Customer- and MechanicController" />
+    <MESSAGE value="added InMemoUsers + small changes" />
+    <MESSAGE value="finished implementing Repositories + small changes" />
+    <MESSAGE value="implemented Customer and Mechanic View, extended features in Controller + necessary changes to classes from Model and Repository Package" />
+    <MESSAGE value="implemented missing feature-&gt; assign Mechanics to Cars" />
+    <MESSAGE value="implemented missing feature-&gt; Ratings for Mechanics" />
+    <MESSAGE value="custom Exception + minor changes to Menu and Interfaces" />
+    <MESSAGE value="split InMemoUsers into InMemoCustomers and InMemoMechanics + minor changes" />
+    <MESSAGE value="fixed bugs+added documentation --&gt;final state" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs+added documentation --&gt;final state" />
+  </component>
+</project>
